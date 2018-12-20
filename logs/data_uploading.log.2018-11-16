@@ -1,0 +1,367 @@
+2018-11-16 09:10:26,507 DEBUG RestTemplate:87 - Created GET request for "http://api.ln.cmcconenet.com/devices"
+2018-11-16 09:10:26,556 DEBUG RestTemplate:779 - Setting request Accept header to [text/plain, */*]
+2018-11-16 09:10:26,558 DEBUG RestTemplate:878 - Writing [] using [org.springframework.http.converter.StringHttpMessageConverter@5b1d2887]
+2018-11-16 09:10:27,201 DEBUG RestTemplate:691 - GET request for "http://api.ln.cmcconenet.com/devices" resulted in 200 (null)
+2018-11-16 09:10:27,214 DEBUG RestTemplate:102 - Reading [java.lang.String] as "application/json" using [org.springframework.http.converter.StringHttpMessageConverter@5b1d2887]
+2018-11-16 09:10:27,978 DEBUG LogFactory:54 - Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2018-11-16 09:10:28,831 DEBUG PooledDataSource:54 - PooledDataSource forcefully closed/removed all connections.
+2018-11-16 09:10:28,832 DEBUG PooledDataSource:54 - PooledDataSource forcefully closed/removed all connections.
+2018-11-16 09:10:28,833 DEBUG PooledDataSource:54 - PooledDataSource forcefully closed/removed all connections.
+2018-11-16 09:10:28,833 DEBUG PooledDataSource:54 - PooledDataSource forcefully closed/removed all connections.
+2018-11-16 09:10:29,296 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:10:29,974 DEBUG PooledDataSource:54 - Created connection 630074945.
+2018-11-16 09:10:29,976 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:10:29,983 DEBUG listAllDevices:54 - ==>  Preparing: SELECT * FROM t_trade_device; 
+2018-11-16 09:10:30,063 DEBUG listAllDevices:54 - ==> Parameters: 
+2018-11-16 09:10:30,355 DEBUG listAllDevices:54 - <==      Total: 12
+2018-11-16 09:10:30,362 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:10:30,364 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:10:30,364 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:10:30,442  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.POS.0106
+2018-11-16 09:10:30,462  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.POS.0101
+2018-11-16 09:10:30,463  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.POS.0102
+2018-11-16 09:10:30,463  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.POS.0104
+2018-11-16 09:10:30,464  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.POS.0105
+2018-11-16 09:10:30,465  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.BOM.0101
+2018-11-16 09:10:30,465  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.BOM.0102
+2018-11-16 09:10:30,465  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.BOM.0103
+2018-11-16 09:10:30,466  WARN MqttDevicesSimulator:80 - Can not get device info from onenet by device title DDZF.BOM.0000
+2018-11-16 09:10:35,846  INFO MqttDevice:198 - mqtt, 连接成功
+2018-11-16 09:10:35,846  INFO MqttDevice:198 - mqtt, 连接成功
+2018-11-16 09:10:35,846  INFO MqttDevice:198 - mqtt, 连接成功
+2018-11-16 09:10:35,958 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:10:35,958 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:10:35,958 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:10:35,959 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:10:35,961 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:10:35,962 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:10:36,036 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:10:36,221 DEBUG PooledDataSource:54 - Created connection 555831675.
+2018-11-16 09:10:36,221 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:10:36,222 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:10:36,222 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:10:36,354 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:10:36,356 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:10:36,381 DEBUG listDatasByDeviceId:54 - <==      Total: 19
+2018-11-16 09:10:36,382 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:10:36,392 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:10:36,398 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:10:36,563 DEBUG PooledDataSource:54 - Created connection 528831226.
+2018-11-16 09:10:36,563 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:10:36,564 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:10:36,564 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:10:36,563 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:10:36,567 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:10:36,569 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:10:36,569 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:10:36,570 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:10:36,570 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:10:36,742 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:36,805 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095B5E","createTime":1528949913870,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114724"}
+2018-11-16 09:10:36,940 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:36,941 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"000400010009520B","createTime":1528949913864,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114722"}
+2018-11-16 09:10:37,163 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:37,164 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095586","createTime":1528949913858,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114719"}
+2018-11-16 09:10:37,349 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:37,352 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"000400010009571F","createTime":1528949867937,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114717"}
+2018-11-16 09:10:37,473 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:37,474 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095A48","createTime":1528949867932,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114712"}
+2018-11-16 09:10:37,570 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:37,575 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095D49","createTime":1528949867925,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114711"}
+2018-11-16 09:10:37,680 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:37,686 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"000400010009510D","createTime":1528949848686,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114708"}
+2018-11-16 09:10:37,924 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:37,924 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095A43","createTime":1528949848554,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114706"}
+2018-11-16 09:10:38,022 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,023 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095A0A","createTime":1528949848429,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114703"}
+2018-11-16 09:10:38,087 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,087 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095A1A","createTime":1528949829305,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114659"}
+2018-11-16 09:10:38,268 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,270 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095A44","createTime":1528949829299,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114656"}
+2018-11-16 09:10:38,402 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,403 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095581","createTime":1528949829293,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114654"}
+2018-11-16 09:10:38,470 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,471 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095CB5","createTime":1528949809987,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114647"}
+2018-11-16 09:10:38,543 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,544 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095DFF","createTime":1528949809980,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114645"}
+2018-11-16 09:10:38,621 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,621 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095585","createTime":1528949809972,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114642"}
+2018-11-16 09:10:38,706 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,706 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095B57","createTime":1528949763401,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114639"}
+2018-11-16 09:10:38,792 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:38,793 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"000400010009554E","createTime":1528949763395,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114637"}
+2018-11-16 09:10:39,006 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:39,007 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095BBD","createTime":1528949763388,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114633"}
+2018-11-16 09:10:39,110 DEBUG MqttDevice:175 - mqtt,发送成功
+2018-11-16 09:10:39,110 DEBUG MqttDevice:257 - Thread 14 publish data success, value {"cardNo":"0004000100095584","createTime":1528949634842,"orgCode":"20000004","posId":"110000000103","tradeMoney":100,"tradeTime":"20180614114631"}
+2018-11-16 09:10:39,115 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:10:39,115 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:10:39,116 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:10:39,116 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:10:39,117 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:10:39,120 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:10:39,121 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:10:39,122 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:10:39,122 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:11:36,567 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:11:36,568 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:11:36,570 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:11:36,571 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:11:36,572 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:11:36,571 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:11:36,573 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:11:36,575 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:11:36,576 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:11:36,578 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:11:36,580 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:11:36,581 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:11:36,585 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:11:36,585 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:11:36,586 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:11:36,587 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:11:36,589 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:11:36,590 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:11:39,122 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:11:39,123 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:11:39,124 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:11:39,125 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:11:39,128 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:11:39,138 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:11:39,139 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:11:39,142 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:11:39,142 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:12:36,588 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:12:36,588 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:12:36,589 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:12:36,589 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:12:36,590 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:12:36,591 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:12:36,591 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:12:36,591 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:12:36,592 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:12:36,592 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:12:36,592 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:12:36,593 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:12:36,593 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:12:36,593 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:12:36,594 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:12:36,595 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:12:36,595 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:12:36,596 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:12:39,143 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:12:39,144 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:12:39,145 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:12:39,145 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:12:39,146 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:12:39,151 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:12:39,152 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:12:39,153 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:12:39,154 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:13:36,594 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:13:36,594 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:13:36,595 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:13:36,596 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:13:36,596 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:13:36,597 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:13:36,597 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:13:36,599 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:13:36,600 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:13:36,601 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:13:36,601 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:13:36,602 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:13:36,604 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:13:36,604 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:13:36,604 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:13:36,605 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:13:36,607 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:13:36,608 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:13:39,155 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:13:39,156 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:13:39,157 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:13:39,157 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:13:39,158 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:13:39,163 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:13:39,164 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:13:39,166 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:13:39,166 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:14:36,608 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:14:36,609 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:14:36,609 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:14:36,610 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:14:36,611 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:14:36,611 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:14:36,613 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:14:36,609 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:14:36,615 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:14:36,617 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:14:36,618 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:14:36,619 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:14:36,620 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:14:36,620 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:14:36,626 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:14:36,630 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:14:36,631 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:14:36,632 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:14:39,167 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:14:39,168 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:14:39,168 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:14:39,169 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:14:39,172 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:14:39,175 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:14:39,176 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:14:39,178 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:14:39,179 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:15:30,367  INFO MqttDevice:162 - mqtt, 连接断开!
+2018-11-16 09:15:36,620 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:15:36,621 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:15:36,621 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:15:36,622 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:15:36,623 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:15:36,626 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:15:36,627 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:15:36,628 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:15:36,629 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:15:36,633 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:15:36,634 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:15:36,634 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:15:36,635 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:15:36,636 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:15:36,639 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:15:36,640 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:15:36,641 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:15:36,642 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:15:39,181 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:15:39,182 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:15:39,183 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:15:39,184 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:15:39,185 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:15:39,188 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:15:39,189 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:15:39,190 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:15:39,191 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:16:36,630 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:16:36,631 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:16:36,632 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:16:36,632 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:16:36,633 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:16:36,638 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:16:36,639 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:16:36,640 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:16:36,641 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:16:36,644 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:16:36,644 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:16:36,645 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:16:36,646 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:16:36,647 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:16:36,650 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:16:36,656 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:16:36,657 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:16:36,658 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:16:39,191 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:16:39,192 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:16:39,192 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:16:39,193 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:16:39,193 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:16:39,196 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:16:39,197 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:16:39,198 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:16:39,199 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:17:36,642 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:17:36,643 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:17:36,643 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:17:36,658 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:17:36,720 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:17:36,720 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:17:36,722 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:17:36,722 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:17:36,722 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:17:36,723 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:17:36,725 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:17:36,726 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:17:36,726 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:17:36,727 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:17:36,727 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:17:36,728 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:17:36,728 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:17:36,729 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:17:39,199 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:17:39,199 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:17:39,199 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:17:39,199 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:17:39,200 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:17:39,201 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:17:39,201 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:17:39,201 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:17:39,202 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:18:36,729 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:18:36,729 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:18:36,729 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:18:36,730 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:18:36,730 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:18:36,730 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:18:36,731 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:18:36,731 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:18:36,733 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:18:36,733 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:18:36,736 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:18:36,736 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:18:36,737 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:18:36,737 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:18:36,739 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:18:36,739 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:18:36,739 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:18:36,740 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:18:39,203 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:18:39,204 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:18:39,204 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:18:39,205 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:18:39,206 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:18:39,210 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:18:39,210 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:18:39,211 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:18:39,212 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:19:36,742 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:19:36,742 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:19:36,743 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:19:36,744 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:19:36,744 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:19:36,744 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:19:36,745 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:19:36,746 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:19:36,746 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:19:36,747 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:19:36,750 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:19:36,750 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:19:36,750 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:19:36,751 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:19:36,752 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:19:36,752 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:19:36,753 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:19:36,753 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.
+2018-11-16 09:19:39,212 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:19:39,212 DEBUG PooledDataSource:54 - Checked out connection 555831675 from pool.
+2018-11-16 09:19:39,212 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:19:39,212 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:19:39,213 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110000000103(String), 2018-06-14 12:18:33.870295(Timestamp), 10000(Integer)
+2018-11-16 09:19:39,214 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:19:39,214 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:19:39,214 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@2121517b]
+2018-11-16 09:19:39,214 DEBUG PooledDataSource:54 - Returned connection 555831675 to pool.
+2018-11-16 09:20:36,753 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:20:36,754 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-16 09:20:36,754 DEBUG PooledDataSource:54 - Checked out connection 528831226 from pool.
+2018-11-16 09:20:36,755 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:20:36,755 DEBUG PooledDataSource:54 - Checked out connection 630074945 from pool.
+2018-11-16 09:20:36,756 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:20:36,756 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:20:36,757 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000105(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:20:36,757 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-16 09:20:36,759 DEBUG listDatasByDeviceId:54 - ==> Parameters: 110010000104(String), 2018-01-01 00:00:00.0(Timestamp), 10000(Integer)
+2018-11-16 09:20:36,760 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:20:36,760 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:20:36,761 DEBUG listDatasByDeviceId:54 - <==      Total: 0
+2018-11-16 09:20:36,761 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@1f8552fa]
+2018-11-16 09:20:36,762 DEBUG JdbcTransaction:54 - Resetting autocommit to true on JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:20:36,762 DEBUG PooledDataSource:54 - Returned connection 528831226 to pool.
+2018-11-16 09:20:36,763 DEBUG JdbcTransaction:54 - Closing JDBC Connection [org.postgresql.jdbc.PgConnection@258e2e41]
+2018-11-16 09:20:36,763 DEBUG PooledDataSource:54 - Returned connection 630074945 to pool.

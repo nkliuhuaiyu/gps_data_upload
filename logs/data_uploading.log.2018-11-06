@@ -1,0 +1,9 @@
+2018-11-06 11:43:30,434 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-06 11:43:30,912 ERROR MqttDevice:120 - mqtt, 网络未连接 - 尝试重新连接
+2018-11-06 11:43:30,438 DEBUG JdbcTransaction:54 - Opening JDBC Connection
+2018-11-06 11:43:31,200 DEBUG PooledDataSource:54 - Checked out connection 498769620 from pool.
+2018-11-06 11:43:31,516 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@1dba9ed4]
+2018-11-06 11:43:31,523 DEBUG PooledDataSource:54 - Checked out connection 552937500 from pool.
+2018-11-06 11:43:31,524 DEBUG JdbcTransaction:54 - Setting autocommit to false on JDBC Connection [org.postgresql.jdbc.PgConnection@20f5281c]
+2018-11-06 11:43:31,565 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
+2018-11-06 11:43:31,565 DEBUG listDatasByDeviceId:54 - ==>  Preparing: SELECT * FROM t_trade_data where pos_id = ? and create_time > ? order by create_time desc limit ? 
