@@ -1,20 +1,19 @@
+import Constant.Constant;
+import Utility.JedisUtility;
 import Utility.OnenetDeviceUtility;
 import Utility.RestfulUtility;
+import com.alibaba.fastjson.JSON;
 import config.UploadConfig;
 import mqtt.MqttDevice;
 import org.apache.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import pojo.BusDeviceDataDO;
 import pojo.DeviceInfo;
 import pojo.DeviceListResponseDTO;
-import pojo.TradeDeviceDO;
-import service.TradeDeviceService;
+import redis.clients.jedis.Jedis;
 
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import Constant.Constant;
+import java.util.Map;
+
 
 public class MqttDevicesSimulator {
 
@@ -27,11 +26,11 @@ public class MqttDevicesSimulator {
     private static final String apiKey = UploadConfig.API_KEY;
 
 
-    public static void main(String[] args){
-        logger.trace("Get Data from onenet platform ----------------------------------------------");
+    public static void main(String[] args) throws InterruptedException {
+        logger.info("Get Data from onenet platform ----------------------------------------------");
         DeviceListResponseDTO deviceListResponseDTO = RestfulUtility.getDeviceListFromUrl(getDevicesUrl , apiKey);
         if(deviceListResponseDTO == null){
-            logger.info("Restful service get request return null. URL: " + getDevicesUrl);
+            logger.warn("Restful service get request return null. URL: " + getDevicesUrl);
             return;
         }
         int devicesCount = deviceListResponseDTO.getData().getTotal_count();
@@ -46,7 +45,7 @@ public class MqttDevicesSimulator {
         while(curPage <= pageCount){
             DeviceListResponseDTO deviceListPerPage = RestfulUtility.getDeviceListFromUrl(getDevicesUrl + "?page=" + String.valueOf(curPage) , apiKey);
             if(deviceListPerPage == null){
-                logger.info("Restful service get requst with page parameter return null. URL: " + getDevicesUrl + "?page=" + String.valueOf(curPage));
+                logger.warn("Restful service get requst with page parameter return null. URL: " + getDevicesUrl + "?page=" + String.valueOf(curPage));
                 return;
             }
             DeviceInfo[] currentPageDevices = deviceListPerPage.getData().getDevices();
@@ -56,23 +55,33 @@ public class MqttDevicesSimulator {
             curPage ++;
         }
 
-        logger.trace("Begin to manipulate the datas ----------------------------------------------");
-        List<TradeDeviceDO> tradeDeviceDOS = TradeDeviceService.listAllDevices();
-        ExecutorService pool = new ThreadPoolExecutor(Constant.CORE_POOL_SIZE , Constant.MAXIMUM_POOL_SIZE , Constant.KEEP_ALIVE_TIME , TimeUnit.SECONDS ,
-                new LinkedBlockingDeque<Runnable>());
-        for(TradeDeviceDO tradeDeviceDO : tradeDeviceDOS){
-            String deviceTitle = OnenetDeviceUtility.generateId(tradeDeviceDO);
-            DeviceInfo deviceInfo = OnenetDeviceUtility.findDeviceByTitle(devices , deviceTitle);
-            MqttConnectOptions deviceOption = new MqttConnectOptions();
-            deviceOption.setUserName(productionId);
-            deviceOption.setPassword(apiKey.toCharArray());
-            deviceOption.setKeepAliveInterval(300);
-            if(deviceInfo != null){
-                MqttDevice mqttDevice = new MqttDevice(tradeDeviceDO.getDeviceNo() , deviceOption , deviceInfo);
-                pool.submit(mqttDevice);
-            }else{
-                logger.warn("Can not get device info from onenet by device title " + deviceTitle);
+        logger.info("Begin to obtain data from redis ----------------------------------------------");
+
+        Jedis jedis = JedisUtility.getInstance().getJedis(UploadConfig.REDIS_INDEX_BUSDEVICEINFO);
+        if(jedis == null){
+            logger.warn("JedisUtility returns null!");
+            return;
+        }
+
+        while(true) {
+            Map<String, String> busDeviceDataMap = jedis.hgetAll(Constant.BUS_DEVICE_DATA_KEY_IN_REDIS);
+            for (Map.Entry<String, String> curBusDeviceData : busDeviceDataMap.entrySet()) {
+                String key = curBusDeviceData.getKey();
+                String value = curBusDeviceData.getValue();
+                BusDeviceDataDO busDeviceDataDO = JSON.parseObject(value, BusDeviceDataDO.class);
+                DeviceInfo deviceInfo = OnenetDeviceUtility.findDeviceByTitle(devices, busDeviceDataDO.getPosid());
+                MqttConnectOptions deviceOption = new MqttConnectOptions();
+                deviceOption.setUserName(productionId);
+                deviceOption.setPassword(apiKey.toCharArray());
+                deviceOption.setKeepAliveInterval(300);
+                if (deviceInfo != null) {
+                    MqttDevice mqttDevice = new MqttDevice(deviceOption, deviceInfo.getId(), busDeviceDataDO);
+                    mqttDevice.handleMqtt();
+                } else {
+                    logger.warn("Can not get device info from onenet by bus pos id" + busDeviceDataDO.getPosid());
+                }
             }
+            Thread.sleep(UploadConfig.UPLOAD_INTERVAL);
         }
     }
 }

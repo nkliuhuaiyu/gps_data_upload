@@ -6,15 +6,12 @@ import com.alibaba.fastjson.JSON;
 import config.UploadConfig;
 import org.apache.log4j.Logger;
 import org.eclipse.paho.client.mqttv3.*;
+import pojo.BusDeviceDataDO;
 import pojo.DeviceInfo;
-import pojo.TradeDataDO;
-import pojo.TradeDataUploadDTO;
-import service.TradeDataService;
 
 import javax.naming.Context;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
 /**
  * MqttClient class
@@ -23,7 +20,7 @@ import java.util.Date;
  * @date 11/27/2017
  * refactor 10/12/2018
  */
-public class MqttDevice implements Runnable {
+public class MqttDevice {
 
     /**
      *  the IP address if put this program on the proxy server
@@ -47,12 +44,6 @@ public class MqttDevice implements Runnable {
     private int serverPort = 6002;
     */
 
-    /*
-     * use to query device datas by TradeDataService
-     */
-    private String deviceNumber;
-
-
     /**
      * MQTT client service
      */
@@ -64,30 +55,13 @@ public class MqttDevice implements Runnable {
      * message receiver
      */
     private ArrayList<MsgHandler> listenerList = new ArrayList<MsgHandler>();
-    /**
-     * message context
-     */
-    private Context mContext;
 
-    /*
-     * device properties
-     */
-    private DeviceInfo deviceInfo;
+    private BusDeviceDataDO busDeviceDataDO;
 
-    public MqttDevice(String deviceNumber, MqttConnectOptions option, DeviceInfo deviceInfo) {
+    public MqttDevice(MqttConnectOptions option, String deviceId , BusDeviceDataDO busDeviceDataDO) {
         this.option = option;
-        this.deviceId = deviceInfo.getId();
-        this.deviceInfo = deviceInfo;
-        this.deviceNumber = deviceNumber;
-    }
-
-    /**
-     * initialize the mqtt client
-     */
-    private void initMqtt(Context context) {
-
-        mContext = context;
-        connect();
+        this.deviceId = deviceId;
+        this.busDeviceDataDO = busDeviceDataDO;
     }
 
     /**
@@ -95,7 +69,6 @@ public class MqttDevice implements Runnable {
      */
     private void reConnect() {
         connect();
-
     }
 
     /**
@@ -228,52 +201,30 @@ public class MqttDevice implements Runnable {
         }
     }
 
-    private void handleMqtt() {
-
-        initMqtt(mContext);
-        Date startTimeToUpload = UploadConfig.UPLOADING_START_TIME;
-
-        while(true){
-            List<TradeDataDO> tradeDataDOS = TradeDataService.listDataByDeviceId(this.deviceNumber , startTimeToUpload , UploadConfig.UPLOADING_MAX_TIMES);
-            if(tradeDataDOS.size() > 0) {
-                //mqtt may be disconnected because the long time sleep
-                if(!isConnected()){
-                    reConnect();
-                }
-                //listDataByDeviceId sorted by create time in desc
-                startTimeToUpload = tradeDataDOS.get(tradeDataDOS.size() - 1).getCreateTime();
-
-                for(TradeDataDO tradeDataDO : tradeDataDOS) {
-
-                    TradeDataUploadDTO tradeDataUploadDTO = new TradeDataUploadDTO();
-                    tradeDataUploadDTO.setCardNo(tradeDataDO.getCardNo());
-                    tradeDataUploadDTO.setCreateTime(tradeDataDO.getCreateTime());
-                    tradeDataUploadDTO.setOrgCode(tradeDataDO.getOrgCode());
-                    tradeDataUploadDTO.setPosId(tradeDataDO.getPosId());
-                    tradeDataUploadDTO.setTradeMoney(tradeDataDO.getTradeMoney());
-                    tradeDataUploadDTO.setTradeTime(tradeDataDO.getTradeTime());
-
-                    boolean success = publish(Constant.MQTT_SYSTEM_TOPIC, JSON.toJSONString(tradeDataUploadDTO));
-                    if (success) {
-                        logger.debug(String.format("Thread %d publish data success, value %s", Thread.currentThread().getId(), JSON.toJSONString(tradeDataUploadDTO)));
-                    }else{
-                        logger.error(String.format("Thread %d publish data success, value %s", Thread.currentThread().getId(), JSON.toJSONString(tradeDataUploadDTO)));
-                    }
+    public void handleMqtt() {
+        if(busDeviceDataDO == null) {
+            logger.warn("BusDeviceDataDO equals null");
+        }else {
+            connect();
+            if(mqttClient.isConnected()) {
+                //upload data
+                boolean success = publish(Constant.MQTT_SYSTEM_TOPIC, JSON.toJSONString(busDeviceDataDO));
+                if (success) {
+                    logger.debug(String.format("Publish data success, value %s", JSON.toJSONString(busDeviceDataDO)));
+                }else{
+                    logger.warn(String.format("Publish data fail , value %s", JSON.toJSONString(busDeviceDataDO)));
                 }
 
-            }else{
                 try {
-                    Thread.sleep(UploadConfig.UPLOADING_TIME_INTERVAL);
-                } catch (InterruptedException e) {
-                    logger.warn("Thread sleep exception." + e.getMessage() , e);
+                    mqttClient.close();
+                } catch (MqttException e) {
+                    logger.error("mqtt close throw exception " , e);
+                    throw new RuntimeException("Can not close the mqttClient by close method.");
                 }
+            }else {
+                logger.warn("mqtt connect fail.");
             }
         }
     }
 
-
-    @Override
-    public void run() {
-        handleMqtt();
-    }
 }

@@ -26,3 +26,6 @@ hs_err_pid*
 .idea/
 target/
 
+70154752-tcp223100246526002/
+logs/
+src/test/
