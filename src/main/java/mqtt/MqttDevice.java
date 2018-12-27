@@ -159,8 +159,10 @@ public class MqttDevice {
                  */
                 int count = 0;
                 while (count < 5 && !mqttClient.isConnected()) {
+                    if(count != 0){
+                        Thread.sleep(5000);
+                    }
                     mqttClient.connect(option);
-                    Thread.sleep(5000);
                     count++;
                 }
                 //连接成功
@@ -216,7 +218,7 @@ public class MqttDevice {
                 }
 
                 try {
-                    mqttClient.close();
+                    mqttClient.disconnect();
                 } catch (MqttException e) {
                     logger.error("mqtt close throw exception " , e);
                     throw new RuntimeException("Can not close the mqttClient by close method.");

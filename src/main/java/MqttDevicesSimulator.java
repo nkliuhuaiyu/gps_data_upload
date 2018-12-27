@@ -57,14 +57,18 @@ public class MqttDevicesSimulator {
 
         logger.info("Begin to obtain data from redis ----------------------------------------------");
 
-        Jedis jedis = JedisUtility.getInstance().getJedis(UploadConfig.REDIS_INDEX_BUSDEVICEINFO);
-        if(jedis == null){
-            logger.warn("JedisUtility returns null!");
-            return;
-        }
-
         while(true) {
+            Jedis jedis = JedisUtility.getInstance().getJedis(UploadConfig.REDIS_INDEX_BUSDEVICEINFO);
+            if(jedis == null){
+                logger.warn("JedisUtility returns null!");
+                return;
+            }
             Map<String, String> busDeviceDataMap = jedis.hgetAll(Constant.BUS_DEVICE_DATA_KEY_IN_REDIS);
+            jedis.close();
+            if(busDeviceDataMap == null){
+                logger.warn("Jedis get hash with key " + Constant.BUS_DEVICE_DATA_KEY_IN_REDIS + " return null");
+                return;
+            }
             for (Map.Entry<String, String> curBusDeviceData : busDeviceDataMap.entrySet()) {
                 String key = curBusDeviceData.getKey();
                 String value = curBusDeviceData.getValue();
