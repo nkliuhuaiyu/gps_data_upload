@@ -76,11 +76,12 @@ public class MqttDevice {
      */
     public boolean publish(String topic, String payload) {
         MqttMessage msg = new MqttMessage();
-        byte[] msgArr = new byte[payload.length() + 3];
-        System.arraycopy(payload.getBytes() , 0 , msgArr , 3 , payload.length());
+        int payloadByteSize = payload.getBytes().length;
+        byte[] msgArr = new byte[payloadByteSize + 3];
+        System.arraycopy(payload.getBytes() , 0 , msgArr , 3 , payloadByteSize);
         msgArr[0] = 0x03;
-        msgArr[1] = (byte) (payload.length() >> 8);
-        msgArr[2] = (byte) payload.length();
+        msgArr[1] = (byte) (payloadByteSize >> 8);
+        msgArr[2] = (byte) payloadByteSize;
         msg.setPayload(msgArr);
         if (mqttClient != null) {
             if (mqttClient.isConnected()) {
