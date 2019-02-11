@@ -220,6 +220,7 @@ public class MqttDevice {
 
                 try {
                     mqttClient.disconnect();
+                    mqttClient.close();
                 } catch (MqttException e) {
                     logger.error("mqtt close throw exception " , e);
                     throw new RuntimeException("Can not close the mqttClient by close method.");
